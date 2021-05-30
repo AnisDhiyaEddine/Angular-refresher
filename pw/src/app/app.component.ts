@@ -11,12 +11,9 @@ export class AppComponent {
   includeNumbers = false;
   includeSymbols = false;
   password = '';
-  validChars = "azertyuiopqsdfghjkklmwxcvbn";
-  validNumber = "1234567890";
-  validSymbols = "#@é'(§è!çà)-_";
 
-  onChangeLength(event: any) {
-    const parsedValue = parseInt(event.target.value);
+  onChangeLength(value: string) {
+    const parsedValue = parseInt(value);
 
     if (!isNaN(parsedValue)) {
       this.length = parsedValue;
@@ -36,19 +33,26 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log(`
-      About to generate a password with the following:
-      Includes letters: ${this.includeLetters}
-      Includes numbers: ${this.includeNumbers}
-      Includes symbols: ${this.includeSymbols}
-    `);
-    this.password = "";
-    let pass = "";
-    if (this.includeLetters) pass += this.validChars;
-    if (this.includeNumbers) pass += this.validNumber;
-    if (this.includeSymbols) pass += this.validSymbols;
-    for(let i = 0; i < this.length ; i++){
-      this.password += pass[Math.floor(Math.random() * pass.length)];
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwyz';
+    const symbols = '!@#$%^&*()';
+
+    let validChars = '';
+    if (this.includeLetters) {
+      validChars += letters;
     }
+    if (this.includeNumbers) {
+      validChars += numbers;
+    }
+    if (this.includeSymbols) {
+      validChars += symbols;
+    }
+
+    let generatedPassword = '';
+    for (let i = 0; i < this.length; i++) {
+      const index = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[index];
+    }
+    this.password = generatedPassword;
   }
 }
