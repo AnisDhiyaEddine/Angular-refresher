@@ -1,31 +1,50 @@
-<h1>Generate password</h1>
-<div>
-  <label>Enter length</label>
-  <input (input) = "onLengthChange($event)" />
-</div>
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Password Generator</h1>
 
-<div>
-  <label>Use Letters</label>
-  <input (change)="onUseLetterChange()" type="checkbox"/>
-</div>
+      <div class="field">
+        <label>Length</label>
+        <input class="input" (input)="onLengthChange($event)" />
+      </div>
 
-<div>
-  <label>Use numbers</label>
-  <input (change)="onUseNumbersChange()" type="checkbox" />
-</div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onUseLetterChange()" type="checkbox" />
+            Use Letters
+          </label>
+        </div>
+      </div>
 
-<div>
-  <label>Use Symbols</label>
-  <input (change)="onUseSymbolsChange()" type="checkbox" />
-</div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onUseNumbersChange()" type="checkbox" />
+            Use Numbers
+          </label>
+        </div>
+      </div>
 
-<div>
-  <button [disabled] = " !(length && (useLetters || useNumbers || useSymbols))" (click) = "onButtonClick()">Generate</button>
-</div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onUseSymbolsChange()" type="checkbox" />
+            Use Symbols
+          </label>
+        </div>
+      </div>
 
-<div>
-  <label>Your password</label>
-  <input [value] = "password"/>
-</div>
+      <button [disabled]="
+          !(length && (useLetters || useNumbers || useSymbols))
+        " (click)="onButtonClick()" class="button is-link is-fullwidth">
+        Generate!
+      </button>
 
-{{password}}
+      <div class="box" *ngIf="password">
+        <label>Your Password</label>
+        <input class="input" [value]="password" />
+      </div>
+    </div>
+  </div>
+</div>
