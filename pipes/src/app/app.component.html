@@ -1,0 +1,32 @@
+<div class="container">
+  <h3>Payment Form</h3>
+      <div class="row">
+        <div class="form-group col">
+          <label>Payee name</label>
+          <br />
+          <input (input)="onNameChange($event)" />
+        </div>
+
+        <div class="col">
+          <label><b>Name</b></label>
+          <br />
+          <div>{{name | titlecase }}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col">
+          <label>Date</label>
+          <br/>
+          <input type="date" (input)="onDateChange($event)" />
+        </div>
+      
+        <div class="col">
+          <label><b>Date</b></label>
+          <br />
+          <div>{{date | date }}</div>
+        </div>
+      </div>
+
+</div>
+
