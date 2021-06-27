@@ -1,13 +1,18 @@
-/* import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appClass]'
 })
 export class ClassDirective {
-  @Input() color: string;
-  constructor( private element : ElementRef) {  
-    setTimeout(()=>     this.element.nativeElement.style.color = this.color, 50)
-  }
+  constructor(private element: ElementRef) {}
 
+  @Input('appClass') set classNames(classObj: any) {
+    for (let key in classObj) {
+      if (classObj[key]) {
+        this.element.nativeElement.classList.add(key);
+      } else {
+        this.element.nativeElement.classList.remove(key);
+      }
+    }
+  }
 }
- */
