@@ -21,7 +21,22 @@
   </ul>
 </nav>
 
-<div>
+<!-- <div>
   <h4>{{ images[currentPage].title }}</h4>
   <img [src]="images[currentPage].url" />
+</div> -->
+
+<div  [ngSwitch]="currentPage">
+  <div *ngSwitchCase="0">
+    Current Page is zero
+  </div>
+  <div *ngSwitchCase="0">
+    Current Page is two
+  </div>
+  <div *ngSwitchCase="0">
+    Current Page is three
+  </div>
+  <div *ngSwitchDefault>
+    Unknown current page!
+  </div>
 </div>
