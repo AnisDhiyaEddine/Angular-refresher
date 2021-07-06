@@ -1,1 +1,11 @@
-<p> Hip && Rip haha</p>
+
+<app-divider>Collections component</app-divider>
+<app-table class="striped celled" [headers]="headers" [data]="data"></app-table>
+
+<br/>
+<app-divider>Table Menu</app-divider>
+<app-tabs>
+    <a [routerLink]="['./']" routerLinkActive="active" [routerLinkActiveOptions] = "{ exact: true }" class="item">Biography</a>
+    <a [routerLink]="['./','companies']" routerLinkActive="active" class="item">Companies</a> 
+    <a [routerLink]="['./','partners']" routerLinkActive="active" class="item">Partners</a>
+</app-tabs>

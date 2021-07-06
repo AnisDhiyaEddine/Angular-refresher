@@ -8,6 +8,7 @@ import { CollectionsModule } from './collections/collections.module';
 import {ElementsModule}  from "./elements/elements.module";
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ViewsModule } from './views/views.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule ,    
     ElementsModule,
     CollectionsModule,
+    ViewsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
