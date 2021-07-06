@@ -1,0 +1,12 @@
+<app-divider>Modal component</app-divider>
+<div (click)="openModalClick()" class="ui positive right labeled icon button">
+    {{ modalOpen ? "Close" : "Open"}}
+<i class="checkmark icon"></i>
+  </div>
+  <br/>
+
+<app-modal (close)="openModalClick()" *ngIf = "modalOpen" ></app-modal>
+<br/>
+<app-divider>Accordion Component</app-divider>
+
+<app-accordion [items]="items"></app-accordion>

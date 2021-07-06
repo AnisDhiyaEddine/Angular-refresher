@@ -7,6 +7,7 @@ import { CollectionsModule } from './collections/collections.module';
 
 import {ElementsModule}  from "./elements/elements.module";
 import { HomeComponent } from './home/home.component';
+import { ModsModule } from './mods/mods.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ViewsModule } from './views/views.module';
 
@@ -21,7 +22,8 @@ import { ViewsModule } from './views/views.module';
     AppRoutingModule ,    
     ElementsModule,
     CollectionsModule,
-    ViewsModule
+    ViewsModule,
+    ModsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
