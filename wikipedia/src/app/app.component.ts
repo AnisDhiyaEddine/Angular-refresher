@@ -10,11 +10,11 @@ import { HttpClientModule } from "@angular/common/http"
 
 export class AppComponent {
   title = 'wikipedia';
-  pages = [];
+  pages : Array<any> = [];
   constructor(private serivce : WikipediaService){
   }
   
   onSubmitted(term: any){
-    this.serivce.search(term).subscribe(( response : any ) => this.pages = response.query.search )
+    this.serivce.search(term).subscribe(( pages ) => this.pages = pages )
   }
 }
